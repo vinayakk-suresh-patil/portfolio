@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Menu, X, ArrowDownToLine } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { cn } from '@/lib/utils'
+import { getAssetPath } from '@/lib/basePath'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -19,14 +20,14 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: 'AI Automation', href: '/#automation' },
-    { name: 'AI Apps', href: '/#apps' },
-    { name: 'Tech Stack', href: '/#tech-stack' },
-    { name: 'About', href: '/#about' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'AI Automation', href: getAssetPath('/#automation') },
+    { name: 'AI Apps', href: getAssetPath('/#apps') },
+    { name: 'Tech Stack', href: getAssetPath('/#tech-stack') },
+    { name: 'About', href: getAssetPath('/#about') },
+    { name: 'Contact', href: getAssetPath('/#contact') },
     {
       name: 'Resume',
-      href: '/resume.pdf',
+      href: getAssetPath('/resume.pdf'),
       download: 'Vinayakk_Suresh_Patil_Resume.pdf',
     },
   ]
@@ -82,7 +83,7 @@ export function Navbar() {
           {/* Right Action: Rounded CTA Button with Skewed Diagonal Sliding Fill */}
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href="/#contact"
+              href={getAssetPath('/#contact')}
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-[#1C1B19] px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-medium text-[#F8F4EA] shadow-[0_2px_8px_rgba(28,27,25,0.15)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1B19] active:scale-[0.98]"
             >
               {/* Skewed diagonal sliding fill */}
@@ -127,7 +128,7 @@ export function Navbar() {
             ))}
             <div className="pt-2">
               <a
-                href="/#contact"
+                href={getAssetPath('/#contact')}
                 onClick={() => setMobileMenuOpen(false)}
                 className="group relative w-full inline-flex items-center justify-center overflow-hidden rounded-xl bg-[#1C1B19] px-5 py-3 text-sm font-medium text-[#F8F4EA] shadow-sm active:scale-[0.98]"
               >

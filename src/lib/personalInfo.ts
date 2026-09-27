@@ -1,3 +1,5 @@
+import { getAssetPath } from '@/lib/basePath'
+
 export interface SocialLink {
   name: string
   label: string
@@ -54,7 +56,7 @@ export const personalInfo: PersonalInfo = {
     {
       name: 'GitHub',
       label: 'GitHub ↗',
-      url: 'https://github.com/vinayakk-patil',
+      url: 'https://github.com/vinayakk-suresh-patil',
       icon: 'github',
       isExternal: true,
     },
@@ -68,7 +70,7 @@ export const personalInfo: PersonalInfo = {
     {
       name: 'Resume',
       label: 'Resume ↗',
-      url: '/resume.pdf',
+      url: getAssetPath('/resume.pdf'),
       icon: 'resume',
       isExternal: true,
     },

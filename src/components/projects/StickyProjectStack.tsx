@@ -7,6 +7,7 @@ import { Github, Play, Sparkles, ExternalLink, ArrowUpRight } from 'lucide-react
 import { Project } from '@/types/project'
 import { cn } from '@/lib/utils'
 import { VideoModal } from '@/components/ui/VideoModal'
+import { getAssetPath } from '@/lib/basePath'
 
 export type SectionTheme = 'dark-obsidian' | 'warm-sand'
 
@@ -75,7 +76,7 @@ function ProjectCardVisual({ project, index, theme, onPlayVideo, imageScale }: P
         >
           {!imgError && project.coverImage ? (
             <img
-              src={project.coverImage}
+              src={getAssetPath(project.coverImage)}
               alt={`${project.title} video cover`}
               onError={() => setImgError(true)}
               style={{

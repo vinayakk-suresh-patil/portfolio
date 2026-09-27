@@ -7,6 +7,7 @@ import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { personalInfo } from '@/lib/personalInfo'
 import { cn } from '@/lib/utils'
+import { getAssetPath } from '@/lib/basePath'
 
 export function About() {
   const shouldReduceMotion = useReducedMotion()
@@ -36,7 +37,7 @@ export function About() {
             {/* Enlarged Main Portrait with clean rounded corners */}
             <div className="relative w-[220px] sm:w-[250px] lg:w-[260px] xl:w-[290px] h-[295px] sm:h-[335px] lg:h-[350px] xl:h-[385px] rounded-2xl overflow-hidden bg-[#ECE4D8] shadow-[0_16px_40px_rgba(95,75,59,0.14)] border border-[#5F4B3B]/10">
               <img
-                src="/images/profile/vinayakk.png"
+                src={getAssetPath('/images/profile/vinayakk.png')}
                 alt="Vinayakk Suresh Patil"
                 className="w-full h-full object-cover object-top select-none"
               />
@@ -127,7 +128,7 @@ export function About() {
             {/* Secondary square photo slightly enlarged for better balance */}
             <div className="w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] lg:w-[165px] lg:h-[165px] rounded-2xl overflow-hidden bg-[#ECE4D8] shadow-[0_12px_32px_rgba(95,75,59,0.12)] border border-[#5F4B3B]/10 select-none">
               <img
-                src="/images/profile/workspace.jpg"
+                src={getAssetPath('/images/profile/workspace.jpg')}
                 alt="Engineering workspace"
                 className="w-full h-full object-cover object-center"
               />

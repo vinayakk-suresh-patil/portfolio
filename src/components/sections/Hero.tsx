@@ -7,12 +7,14 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Github, Linkedin } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { personalInfo } from '@/lib/personalInfo'
+import { getAssetPath } from '@/lib/basePath'
 
 export interface HeroProps {
   imageSrc?: string
 }
 
-export function Hero({ imageSrc = '/images/profile/vinayakk.png' }: HeroProps) {
+export function Hero({ imageSrc }: HeroProps) {
+  const resolvedImageSrc = imageSrc || getAssetPath('/images/profile/vinayakk.png')
   const shouldReduceMotion = useReducedMotion()
   const [mounted, setMounted] = useState(false)
 
@@ -249,7 +251,7 @@ export function Hero({ imageSrc = '/images/profile/vinayakk.png' }: HeroProps) {
           >
             <div className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-none h-[420px] sm:h-[480px] lg:h-full aspect-square flex items-end justify-center overflow-hidden rounded-br-[28px] sm:rounded-br-[32px]">
               <Image
-                src={imageSrc}
+                src={resolvedImageSrc}
                 alt="Portrait of Vinayakk Suresh Patil"
                 fill
                 sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 700px"
