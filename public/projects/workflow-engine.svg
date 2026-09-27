@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141419" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="windowBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#27272A" stop-opacity="0.25" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" />
+
+  <!-- Flow Grid Pattern -->
+  <g opacity="0.12" stroke="#27272A" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50" /><line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="150" x2="800" y2="150" /><line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="250" x2="800" y2="250" /><line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="350" x2="800" y2="350" /><line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="100" y1="0" x2="100" y2="500" /><line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="300" y1="0" x2="300" y2="500" /><line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="500" y1="0" x2="500" y2="500" /><line x1="600" y1="0" x2="600" y2="500" />
+  </g>
+
+  <!-- App Canvas Frame -->
+  <rect x="50" y="40" width="700" height="420" rx="14" fill="#111113" stroke="url(#windowBorder)" stroke-width="1.5" />
+  
+  <!-- App Header Bar -->
+  <rect x="50" y="40" width="700" height="44" rx="14" fill="#18181B" />
+  <circle cx="78" cy="62" r="5" fill="#EF4444" opacity="0.8" />
+  <circle cx="94" cy="62" r="5" fill="#F59E0B" opacity="0.8" />
+  <circle cx="110" cy="62" r="5" fill="#10B981" opacity="0.8" />
+  <text x="400" y="66" fill="#A1A1AA" font-family="monospace" font-size="12" text-anchor="middle" font-weight="600">
+    flow.vinayakk.dev · Natural Language to OpenAPI Integration Compiler
+  </text>
+
+  <!-- Prompt Input Bar -->
+  <rect x="80" y="105" width="640" height="60" rx="8" fill="#181822" stroke="#38BDF8" stroke-opacity="0.4" stroke-width="1.5" />
+  <text x="100" y="130" fill="#38BDF8" font-family="monospace" font-size="10" font-weight="700">PROMPT SPECIFICATION:</text>
+  <text x="100" y="150" fill="#FAFAFA" font-family="sans-serif" font-size="12">
+    "When a Stripe checkout succeeds, query HubSpot to find contact, then send Slack notification with invoice PDF."
+  </text>
+
+  <!-- DAG Flow Graph Nodes -->
+  <!-- Node 1: Stripe Event -->
+  <rect x="80" y="195" width="160" height="95" rx="8" fill="#141418" stroke="#635BFF" stroke-width="1.5" />
+  <circle cx="110" cy="225" r="10" fill="#635BFF" fill-opacity="0.25" />
+  <text x="110" y="229" fill="#FAFAFA" font-family="sans-serif" font-size="12" text-anchor="middle">S</text>
+  <text x="130" y="228" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="700">Stripe Inbound</text>
+  <text x="95" y="252" fill="#A1A1AA" font-family="monospace" font-size="10">checkout.completed</text>
+  <text x="95" y="270" fill="#10B981" font-family="monospace" font-size="10">✓ HMAC Validated</text>
+
+  <!-- Path 1 to 2 -->
+  <path d="M 240 242 L 310 242" stroke="#38BDF8" stroke-width="2" />
+  <polygon points="310,238 318,242 310,246" fill="#38BDF8" />
+
+  <!-- Node 2: HubSpot Mutation -->
+  <rect x="320" y="195" width="160" height="95" rx="8" fill="#141418" stroke="#FF7A59" stroke-width="1.5" />
+  <circle cx="350" cy="225" r="10" fill="#FF7A59" fill-opacity="0.25" />
+  <text x="350" y="229" fill="#FAFAFA" font-family="sans-serif" font-size="12" text-anchor="middle">H</text>
+  <text x="370" y="228" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="700">HubSpot CRM</text>
+  <text x="335" y="252" fill="#A1A1AA" font-family="monospace" font-size="10">contacts.searchByEmail</text>
+  <text x="335" y="270" fill="#38BDF8" font-family="monospace" font-size="10">✓ Zod Type Checked</text>
+
+  <!-- Path 2 to 3 -->
+  <path d="M 480 242 L 550 242" stroke="#38BDF8" stroke-width="2" />
+  <polygon points="550,238 558,242 550,246" fill="#38BDF8" />
+
+  <!-- Node 3: Slack Notification -->
+  <rect x="560" y="195" width="160" height="95" rx="8" fill="#141418" stroke="#4A154B" stroke-width="1.5" />
+  <circle cx="590" cy="225" r="10" fill="#E01E5A" fill-opacity="0.25" />
+  <text x="590" y="229" fill="#FAFAFA" font-family="sans-serif" font-size="12" text-anchor="middle">#</text>
+  <text x="610" y="228" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="700">Slack Dispatch</text>
+  <text x="575" y="252" fill="#A1A1AA" font-family="monospace" font-size="10">chat.postMessage</text>
+  <text x="575" y="270" fill="#10B981" font-family="monospace" font-size="10">✓ Self-Healing Retry</text>
+
+  <!-- Bottom Code Synthesis Output -->
+  <rect x="80" y="315" width="640" height="110" rx="8" fill="#141418" stroke="#27272A" />
+  <text x="100" y="338" fill="#10B981" font-family="monospace" font-size="11" font-weight="700">GENERATED TYPESCRIPT PIPELINE (0 TYPE ERRORS)</text>
+  <g font-family="monospace" font-size="10" fill="#A1A1AA">
+    <text x="100" y="360" fill="#71717A">export async function handleCheckout(event: StripeWebhookEvent): Promise&lt;WorkflowResult&gt; {</text>
+    <text x="120" y="378" fill="#FAFAFA">  const customer = await hubspot.crm.contacts.search({ email: event.data.customer_email });</text>
+    <text x="120" y="396" fill="#38BDF8">  await slack.chat.postMessage({ channel: '#revenue-feed', text: `Paid: $${event.data.amount / 100}` });</text>
+    <text x="100" y="414" fill="#71717A">}</text>
+  </g>
+</svg>

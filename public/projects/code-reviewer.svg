@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141418" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#27272A" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.15" stroke="#27272A" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50" />
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="250" x2="800" y2="250" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="450" x2="800" y2="450" />
+    <line x1="100" y1="0" x2="100" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="300" y1="0" x2="300" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="500" y1="0" x2="500" y2="500" />
+    <line x1="600" y1="0" x2="600" y2="500" />
+    <line x1="700" y1="0" x2="700" y2="500" />
+  </g>
+
+  <!-- IDE / Reviewer Window Container -->
+  <rect x="60" y="45" width="680" height="410" rx="14" fill="#111113" stroke="url(#borderGrad)" stroke-width="1.5" />
+
+  <!-- Window Header -->
+  <rect x="60" y="45" width="680" height="42" rx="14" fill="#18181B" />
+  <circle cx="90" cy="66" r="5" fill="#EF4444" opacity="0.8" />
+  <circle cx="106" cy="66" r="5" fill="#F59E0B" opacity="0.8" />
+  <circle cx="122" cy="66" r="5" fill="#10B981" opacity="0.8" />
+  
+  <text x="400" y="70" fill="#A1A1AA" font-family="monospace" font-size="12" text-anchor="middle" font-weight="600">
+    agentic-reviewer/pull/142 · AST Diff &amp; Security Scan
+  </text>
+
+  <!-- Left: AST Tree & Call Graph -->
+  <rect x="85" y="105" width="260" height="325" rx="8" fill="#141417" stroke="#27272A" stroke-width="1" />
+  <text x="105" y="132" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="700">TREE-SITTER AST PARSER</text>
+  
+  <g font-family="monospace" font-size="11" fill="#A1A1AA">
+    <text x="105" y="165" fill="#71717A">├─ Program</text>
+    <text x="115" y="195" fill="#71717A">│  ├─ FunctionDeclaration [async]</text>
+    <text x="125" y="225" fill="#38BDF8">│  │  ├─ Identifier: handleWebhook</text>
+    <text x="125" y="255" fill="#10B981">│  │  ├─ Verified: HMAC SHA256</text>
+    <text x="115" y="285" fill="#71717A">│  └─ ReturnStatement</text>
+    <text x="105" y="315" fill="#A1A1AA">└─ CallExpression: dispatchQueue</text>
+  </g>
+
+  <!-- AST badge -->
+  <rect x="105" y="360" width="220" height="46" rx="6" fill="#1A1A20" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1" />
+  <circle cx="125" cy="383" r="4" fill="#38BDF8" />
+  <text x="140" y="380" fill="#FAFAFA" font-family="monospace" font-size="11" font-weight="600">AST Nodes Checked: 1,420</text>
+  <text x="140" y="396" fill="#10B981" font-family="monospace" font-size="10">Zero syntax regressions</text>
+
+  <!-- Right: Automated Patch Synthesis -->
+  <rect x="365" y="105" width="350" height="325" rx="8" fill="#141417" stroke="#27272A" stroke-width="1" />
+  <text x="385" y="132" fill="#10B981" font-family="monospace" font-size="11" font-weight="700">CLAUDE 3.5 SYNTHESIZED PATCH</text>
+
+  <!-- Diff block -->
+  <g font-family="monospace" font-size="11">
+    <!-- Unchanged line -->
+    <text x="385" y="165" fill="#71717A">  const payload = await req.json()</text>
+    <!-- Removed line -->
+    <rect x="375" y="180" width="330" height="26" fill="#EF4444" fill-opacity="0.12" />
+    <text x="385" y="198" fill="#F87171">- if (!payload.token) return unauthorized()</text>
+    <!-- Added line 1 -->
+    <rect x="375" y="210" width="330" height="26" fill="url(#greenGrad)" />
+    <text x="385" y="228" fill="#34D399">+ const signature = req.headers['x-hub-signature-256']</text>
+    <!-- Added line 2 -->
+    <rect x="375" y="240" width="330" height="26" fill="url(#greenGrad)" />
+    <text x="385" y="258" fill="#34D399">+ if (!verifyHmac(payload, signature)) throw 401</text>
+    <!-- Unchanged line -->
+    <text x="385" y="295" fill="#71717A">  return processEvent(payload)</text>
+  </g>
+
+  <!-- AI Review summary banner -->
+  <rect x="385" y="335" width="310" height="75" rx="8" fill="#18181F" stroke="#27272A" />
+  <text x="405" y="360" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="700">Claude 3.5 Sonnet: Ready to Merge</text>
+  <text x="405" y="380" fill="#A1A1AA" font-family="sans-serif" font-size="11">Patch fixes timing attack vulnerability in webhook header.</text>
+  <text x="405" y="398" fill="#38BDF8" font-family="monospace" font-size="10">✓ Branch: patch-fix-auth-sec</text>
+</svg>
